@@ -1,0 +1,48 @@
+{% extends 'predictor/layout.html' %}
+{% load static %} 
+{%block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigenix</title>
+</head>
+<body>
+    <section >
+        <!-- <div class="row">
+          <div class="col s4 m4 l4 offset-s4 offset-l4 offset-m4"> 
+            <hr>
+          </div> 
+          <br> <br> <br>
+        </div> -->
+        <div class="row" style="width: 85%; margin: auto;">
+          
+          <div class="col s12 m5 ">
+            <br>
+            {% for result in results %}
+                <h4><strong>Predicted Score: {{result}}</strong></h4>
+            {% endfor %}
+            <br>
+            {% for inference in predictions %}
+                <h4><strong>Inference: {{inference}}</strong></h4>
+            {% endfor %}
+            <br>
+            <p style="font-size:20px; text-align: justify;" class="text-break border border-success p-2"><strong>Sequence: </strong>{{sequence}}</p>
+            <br>
+            <h4><strong>ACC Transform Results</strong></h4>
+            <div class="border border-success p-2" style="--bs-border-opacity: .5;">
+                {% for line in display %}
+                    <p style="font-size:20px; text-align: justify;">{{line}}</p>
+                {% endfor %}
+            </div>
+            <br>
+          </div>
+            <!-- <div class="col s12 m6 offset-m1">
+              <img src="{% static 'img/ab2.png' %}"  class="responsive-img">
+            </div> -->
+        </div> 
+      </section> 
+</body>
+</html>
+{% endblock %}

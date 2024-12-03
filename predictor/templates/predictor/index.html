@@ -1,0 +1,52 @@
+{% extends 'predictor/layout.html' %}
+{% load static %} 
+      {% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigenix</title>
+</head>
+<body>
+    <section>
+        <br>
+        <div class="container">
+            <form action="{% url 'predict' %}" method="post" class="form-group">
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.sequence.label_tag }}
+                    {{ form.sequence }}
+            </div>
+            <div class="col-md-4">
+                {{ form.model.label_tag }}
+                {{ form.model }}
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <br>
+
+        {% if example %}
+            <p class="text-break border border-success p-2">Examle Sequence: {{example}}</p>
+        {% endif %}
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </section>
+</body>
+</html>
+{% endblock %}
